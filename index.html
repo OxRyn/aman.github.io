@@ -69,6 +69,157 @@
     </style>
 
     <style>
+      /* Add this CSS in your main.css or index.css */
+:root {
+  --primary: #ffd62b;
+  --tertiary: #924dff;
+}
+
+/* Custom scrollbar style for webkit browsers (e.g., Chrome) */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the scrollbar width */
+}
+
+/* Track (the area where the scrollbar moves) */
+::-webkit-scrollbar-track {
+  background: #1c1c1c; /* Change the background color */
+  border-radius: 10px; /* Add border-radius for rounded edges */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* Change the scrollbar handle color */
+  border: 2px solid #555; /* Add a border to the scrollbar handle */
+  border-radius: 10px; /* Add border-radius for rounded edges */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(234 179 8); /* Change the scrollbar handle color on hover */
+}
+body {
+  user-select: none;
+}
+
+.underline-on-hover {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-on-hover::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Adjust the underline height as needed */
+  bottom: 0;
+  left: 0;
+  background-color: var(--tertiary); /* Adjust the color as needed */
+  transition: width 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.underline-on-hover:hover::before {
+  width: 100%;
+}
+
+.connector::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: #4a90e2; /* Adjust the color as needed */
+  transform: translateY(-50%);
+}
+
+.csBG {
+  background-image: url("/src/images/webBG.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto; /* Use the original size of the SVG images */
+  background-size: 80%;
+  background-color: aliceblue;
+}
+
+.topYellow {
+  background-image: url("/src/images/topYellow.svg");
+  background-size: cover; /* Change to cover for better fit */
+  background-repeat: no-repeat;
+  background-position: top center; /* Center the image horizontally */
+}
+.bottomYellow {
+  background-image: url("/src/images/bottomYellow.svg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.topPurple {
+  background-image: url("/src/images/topPurple.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.bottomPurple {
+  background-image: url("/src/images/bottomPurple.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.topPurpleBottomYellow {
+  background-image: url("/src/images/topPurple.svg"),
+    url("/src/images/bottomYellow.svg"); /* Specify the paths to your SVG images */
+  background-position: top center, bottom center; /* Position the top and bottom images at the center horizontally */
+  background-repeat: no-repeat, no-repeat; /* Prevent images from repeating */
+  background-size: auto, auto; /* Use the original size of the SVG images */
+  background-size: 100%, 100%;
+}
+
+.topYellowBottomPurple {
+  background-image: url("/src/images/topYellow.svg"),
+    url("/src/images/bottomPurple.svg"); /* Specify the paths to your SVG images */
+  background-position: top center, bottom center; /* Position the top and bottom images at the center horizontally */
+  background-repeat: no-repeat, no-repeat; /* Prevent images from repeating */
+  background-size: auto, auto; /* Use the original size of the SVG images */
+  background-size: 100%, 100%;
+}
+
+.blobCornersPurple {
+  background-image: url("/src/images/bolbCornerMixed.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: auto; /* Use the original size of the SVG images */
+  background-size: 100%;
+}
+
+.heroSection {
+  background-position: top center, bottom center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, auto;
+}
+
+/* Default images for sm and md screens */
+.heroSection {
+  background-image: url("/src/images/topYellow.svg"),
+    url("/src/images/bottomPurple.svg");
+  background-size: 100%, 100%;
+}
+
+/* Change the top image for lg screens */
+@media (min-width: 1025px) {
+  .heroSection {
+    background-image: url("/src/images/topCirclePurple.svg"),
+      url("/src/images/bottomPurple.svg");
+    background-size: 100%, 100%;
+  }
+}
+
+    </style>
+
+    <style>
       /*
 ! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com
 */
