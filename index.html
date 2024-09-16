@@ -1,1 +1,229 @@
-Hi
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aman</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap");
+    </style>
+    <link rel="stylesheet" href="src/css/dist/main.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- JavaScript -->
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const body = document.body;
+
+        // Toggle visibility of the menu
+        menu.classList.toggle("hidden");
+
+        // Toggle background blur
+        if (!menu.classList.contains("hidden")) {
+          body.classList.add("blurred-bg");
+        } else {
+          body.classList.remove("blurred-bg");
+        }
+      }
+
+      // Close the pop-up if the user clicks outside of it
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("mobile-menu");
+        const button = document.querySelector("button[onclick='toggleMenu()']");
+
+        // Check if the click is outside the menu and the button
+        if (!menu.contains(event.target) && !button.contains(event.target)) {
+          menu.classList.add("hidden");
+          document.body.classList.remove("blurred-bg"); // Remove background blur
+        }
+      });
+    </script>
+
+    <style>
+      /* Blur effect for background */
+      .blurred-bg::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5); /* Add dark overlay */
+        filter: blur(5px);
+        z-index: 40; /* Behind the menu, above the rest of the content */
+      }
+
+      /* Make sure the mobile menu itself doesn't get blurred */
+      #mobile-menu {
+        z-index: 50; /* Ensure the menu is on top of the blur */
+      }
+    </style>
+  </head>
+  <body class="transition-colors duration-300">
+    <div
+      class="dark:text-white bg-white text-dark-800 dark:bg-dark-700 p-4 lg:h-screen flex items-center justify-center"
+    >
+      <div class="my-auto w-full max-w-[55rem]">
+        <!-- Navbar -->
+        <nav
+          class="relative grid grid-cols-1 sm:grid-cols-2 p-8 sm:px-6 lg:px-6 rounded-2xl text-3xl bottomPurple"
+        >
+          <div class="flex items-center justify-between w-full">
+            <!-- Aman.dev Logo -->
+            <a
+              href="#home"
+              class="flex items-center space-x-1 text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 transition-colors duration-300"
+            >
+              <i class="fa-solid fa-laptop"></i>
+              <span class="font-jost font-bold">Aman.dev</span>
+            </a>
+
+            <!-- Hamburger Button -->
+            <button
+              class="lg:hidden absolute right-4 top-4"
+              onclick="toggleMenu()"
+            >
+              <i
+                class="fa-solid fa-bars text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 text-3xl"
+              ></i>
+            </button>
+
+            <!-- Centered Pop-up Menu -->
+            <div
+              id="mobile-menu"
+              class="absolute top-1/2 w-full m-4 left-1/2 transform -translate-x-[51.5%] -translate-y-1/2 bg-dark-700 rounded-lg shadow-lg hidden z-50 p-4"
+            >
+              <div class="flex flex-col items-center space-y-4">
+                <a
+                  href="https://github.com/ItzAmanKoushal"
+                  target="_blank"
+                  class="text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 text-xl"
+                  >Github</a
+                >
+                <a
+                  href="https://discord.com/users/1177808839484133437"
+                  target="_blank"
+                  class="text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 text-xl"
+                  >Discord</a
+                >
+                <button
+                  id="darkModeBtn"
+                  class="flex dark-mode-button text-white text-xl"
+                >
+                  <span
+                    class="material-icons font-bold hover:text-dark-800 transition-colors duration-300"
+                    >light_mode</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Menu (Visible on larger screens) -->
+          <div class="ml-auto flex space-x-4 lg:space-x-6 items-center">
+            <a
+              href="https://github.com/ItzAmanKoushal"
+              target="_blank"
+              class="hidden lg:flex items-center space-x-1 text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 transition-colors duration-300"
+            >
+              <span class="font-jost font-semibold">Github</span>
+            </a>
+            <a
+              href="https://discord.com/users/1177808839484133437"
+              target="_blank"
+              class="hidden lg:flex items-center space-x-1 text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 transition-colors duration-300"
+            >
+              <span class="font-jost font-semibold">Discord</span>
+            </a>
+            <button
+              id="darkModeBtnDesktop"
+              class="hidden lg:flex dark-mode-button my-auto"
+            >
+              <span
+                class="material-icons font-bold text-dark-800 hover:text-white dark:text-white dark:hover:text-dark-800 transition-colors duration-300 text-2xl"
+                >light_mode</span
+              >
+            </button>
+          </div>
+        </nav>
+
+        <!-- Main Section -->
+        <main class="bg-bg_light dark:bg-bg_dark py-8">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 p-8 px-4 sm:px-6 lg:px-6 bg-slate-200 dark:bg-dark-800 rounded-2xl topPurpleBottomYellow"
+          >
+            <!-- Text Block -->
+            <div id="text" class="my-auto mx-2">
+              <h3 class="text-pred-500 my-2 font-bold text-lg">HELLO</h3>
+
+              <!-- Animated Text DIV -->
+              <div
+                id="animation-text-div"
+                class="text-5xl text-primary_text dark:text-white"
+              >
+                <h2 class="my-3">
+                  <span class="font-light text-indigo-400">I'm </span>
+                  <span class="font-bold">Aman</span>
+                </h2>
+
+                <!-- Animated Text -->
+                <div class="flex items-center my-3">
+                  <h2 class="py-auto mr-2 font-bold">a</h2>
+                  <h2
+                    id="animatedText"
+                    class="animated-text text-indigo-400 font-light"
+                  ></h2>
+                </div>
+              </div>
+
+              <!-- Paragraph -->
+              <div class="my-10">
+                <p class="text-dark-300 dark:text-slate-400 text-lg sm:text-xl">
+                  I'm a 21-year-old student from Delhi, India, passionate about
+                  technology and coding.
+                </p>
+              </div>
+            </div>
+
+            <!-- Image Block -->
+            <div id="hero-img" class="my-auto mx-2">
+              <div class="p-4 bg-slate-200 dark:bg-dark-800 rounded-2xl">
+                <img
+                  src="/src/images/avatar.jpg"
+                  class="w-auto sm:h-screen md:h-[15rem] lg:h-fit mx-auto object-contain rounded-xl"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer
+          class="topYellow grid grid-cols-1 sm:grid-cols-2 p-8 sm:px-6 lg:px-6 rounded-2xl text-lg text-dark-800"
+        >
+          <div class="flex items-center justify-center sm:justify-start">
+            <span class="font-jost font-bold text-lg">Aman.dev</span>
+          </div>
+          <div class="flex items-center justify-center sm:justify-end">
+            <span class="text-sm"
+              >Made with <i class="fa-solid fa-heart text-red-500"></i> by
+              Aman</span
+            >
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="/src/js/theme.js"></script>
+    <script src="/src/js/animationTextManager.js"></script>
+  </body>
+</html>
